@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>JAVA答题</title>
+    <script src="http://upcdn.b0.upaiyun.com/libs/jquery/jquery-2.0.2.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+        #div-btn{
+           text-align: center;
+        }
+        #btn-ans{
+            text-align: center;
+            width: 150px;
+        }
+    </style>
+    <script type="text/javascript">
+        $(document).ready(function(){
+        	$.get("/weather/Geti",function(data,status){
+        		var o = eval("(" + data + ")");
+        		var q1 = o.question1;
+        		var q2 = o.question2;
+        		var q3 = o.question3;
+        		var q4 = o.question4;
+        	
+        	    /////////////
+        	    var standard="CCCC";
+        	    $("#t1").text(q1.question);
+        		$("#a11").html(q1.xone);
+        		$("#a12").html(q1.xtwo);
+        		$("#a13").html(q1.xthree);
+        		$("#a14").html(q1.xfour);
+        		
+        		$("#t2").text(q2.question);
+        		$("#a21").html(q2.xone);
+        		$("#a22").html(q2.xtwo);
+        		$("#a23").html(q2.xthree);
+        		$("#a24").html(q2.xfour);
+        		
+        		$("#t3").text(q3.question);
+        		$("#a31").html(q3.xone);
+        		$("#a32").html(q3.xtwo);
+        		$("#a33").html(q3.xthree);
+        		$("#a34").html(q3.xfour);
+        		
+        		$("#t4").text(q4.question);
+        		$("#a41").html(q4.xone);
+        		$("#a42").html(q4.xtwo);
+        		$("#a43").html(q4.xthree);
+        		$("#a44").html(q4.xfour);
+        		});
+        		//////////////
+        		
+        	    $("#btn-ans").click(function(){
+        			var s1 = $("input[name=radiobutton1]:checked").val();
+        			var s2 = $("input[name=radiobutton2]:checked").val();
+        			var s3 = $("input[name=radiobutton3]:checked").val();
+        			var s4 = $("input[name=radiobutton4]:checked").val();
+                alert("已交卷\n我的作答是:" + s1+s2+s3+s4 + "\n我的得分是: 100分" +"\n谢谢");
+            });
+        });
+    </script>
+</head>
+<body>
+<div class="container">
+<h3 align="center">第一题</h3>
+<p id="t1"></p>
+    <input type="radio" name="radiobutton1" value="A" checked><span id="a11"></span><br>
+    <input type="radio" name="radiobutton1" value="B" ><span id="a12"></span><br>
+    <input type="radio" name="radiobutton1" value="C" ><span id="a13"></span><br>
+    <input type="radio" name="radiobutton1" value="D" ><span id="a14"></span><br>
+<h3 align="center">第二题</h3>
+<p id="t2"></p>
+    <input type="radio" name="radiobutton2" value="A" checked><span id="a21"></span><br>
+    <input type="radio" name="radiobutton2" value="B"><span id="a22"></span><br>
+    <input type="radio" name="radiobutton2" value="C"><span id="a23"></span><br>
+    <input type="radio" name="radiobutton2" value="D"><span id="a24"></span><br>
+<h3 align="center">第三题</h3>
+<p id="t3"></p>
+    <input type="radio" name="radiobutton3" value="A" checked><span id="a31"></span><br>
+    <input type="radio" name="radiobutton3" value="B"><span id="a32"></span><br>
+    <input type="radio" name="radiobutton3" value="C"><span id="a33"></span><br>
+    <input type="radio" name="radiobutton3" value="D"><span id="a34"></span><br>
+<h3 align="center">第四题</h3>
+<p id="t4"></p>
+    <input type="radio" name="radiobutton4" value="A" checked><span id="a41"></span><br>
+    <input type="radio" name="radiobutton4" value="B"><span id="a42"></span><br>
+    <input type="radio" name="radiobutton4" value="C"><span id="a43"></span><br>
+    <input type="radio" name="radiobutton4" value="D"><span id="a44"></span><br>
+          
+    <br>
+    <div id="div-btn">
+    <button id="btn-ans" type="button" class="btn btn-success">提 交</button>
+    </div>
+    <br>
+    <br>
+</div>
+</body>
+</html>

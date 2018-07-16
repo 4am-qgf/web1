@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="http://upcdn.b0.upaiyun.com/libs/jquery/jquery-2.0.2.min.js">
+</script>
+<script>
+    $(document).ready(function(){
+        $("#p1").click(function(){
+            
+            $.post("/weather/login",
+            	    {
+            	        user:"菜鸟",
+            	        password:"123"
+            	    },
+            	        function(data,status){
+            	        alert("数据: \n" + data + "\n状态: " + status);
+            	    });
+        });
+        $("#btn3").click(function(){
+    $("#test3").val("Dolly Duck");
+  });
+    });
+</script>
+</head>
+
+<body>
+<h2 align="center">天气预报</h2>
+<p align="center">Input field: <input type="text" id="test3" value="Mickey Mouse"></p>
+<center><button id="btn3">设置值</button></center>
+
+<br><center>click send post to http://localhost:8080/weather/login?user=菜鸟&password=123</center>
+<center><button id="p1" >Click</button></center>
+</body>
+</html>
